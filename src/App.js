@@ -4,7 +4,7 @@ function App() {
   const [count, setCount] = useState(0);
 
   function Increment(){
-    setCount(count + 1);
+    setCount((prevState) => prevState + 1);
   } 
   return (
     <div>
