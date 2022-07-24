@@ -18,7 +18,7 @@ export function Effect(){
                 setItems(responseJSON)
         }
 
-        // fetchResourceTypes();
+        fetchResourceTypes();
     }, [resourceType]);
 
     // ComponentDidMount
