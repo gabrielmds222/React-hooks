@@ -18,8 +18,14 @@ export function Effect(){
                 setItems(responseJSON)
         }
 
-        fetchResourceTypes();
+        // fetchResourceTypes();
     }, [resourceType]);
+
+    // ComponentDidMount
+    useEffect(() => {
+        console.log('ComponentDidMount');
+    }, []); //Ao passar uma lista vazia, o useEffect só será executado uma vez;
+    // ComponentWillUnmount
 
     return(
         <div>
