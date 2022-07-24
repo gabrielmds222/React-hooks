@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 
 export function Effect(){
+    const [items, setItems] = useState([]);
     const [resourceType, setResourceType] = useState("posts");
 
     const changeResourceType = (resourceType) => {
@@ -8,9 +9,16 @@ export function Effect(){
     }
 
     useEffect(() => {
-        fetch(`https://jsonplaceholder.typicode.com/${resourceType}`)
-        .then((response) => response.json())
-        .then((json) => console.log(json));
+        const fetchResourceTypes = async () => {
+            const response = await fetch(
+                `https://jsonplaceholder.typicode.com/${resourceType}`
+                );
+                const responseJSON = await response.json();
+
+                setItems(responseJSON)
+        }
+
+        fetchResourceTypes();
     }, [resourceType]);
 
     return(
@@ -21,6 +29,10 @@ export function Effect(){
                 <button onClick={() => changeResourceType("comments")}>comments</button>
                 <button onClick={() => changeResourceType("todos")}>todos</button>
             </div>
+
+            {items.map((item) => (
+                <p>{item.title}</p>
+            ))}
         </div>
     );
 }
