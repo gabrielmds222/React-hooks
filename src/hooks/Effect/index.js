@@ -24,8 +24,12 @@ export function Effect(){
     // ComponentDidMount
     useEffect(() => {
         console.log('ComponentDidMount');
+
+        // ComponentWillUnmount
+        return () => {
+            console.log('ComponentWillUnmount');
+        }
     }, []); //Ao passar uma lista vazia, o useEffect só será executado uma vez;
-    // ComponentWillUnmount
 
     return(
         <div>
