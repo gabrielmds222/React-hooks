@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useMemo } from 'react';
 
 export function Memo(){
     const [number, setNumber] = useState(1);
@@ -10,7 +10,9 @@ export function Memo(){
         return num * 2;
     }
 
-    const doubleNumber = slowFuntion(number);
+    const doubleNumber = useMemo(() => {
+        return slowFuntion(number)
+    }, [number]);
 
     return(
         <>
