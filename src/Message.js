@@ -1,4 +1,4 @@
-import { ThemeContext } from "./index";
+import { ThemeContext } from "./hooks/Context/index";
 
 export default function Message(){
     return(
